@@ -10,6 +10,11 @@
     overflow-x: hidden;
 }
 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* General */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -26,6 +31,10 @@ body {
         justify-content: center;
         align-content: center;
     }
+
+    .mobile-hidden {
+        display: none !important;
+    }
 }
 
 
@@ -37,6 +46,23 @@ body {
     display: flex;
 }
 
+.blue {
+    color: #0083D3;
+}
+
+.bg-blue {
+    background-color: #0082d381;
+}
+
+.bg-pink {
+    background-color: #DD71C6;
+}
+
+
+section{
+    z-index: 1;
+}
+
 /* Principal Container */
 .container {
     width: 100%;
@@ -46,6 +72,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.container-start {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -62,6 +99,9 @@ h3 {
     padding: 0;
 }
 
+.highpink {
+    color: #DD71C6;
+}
 
 /* Images Styles */
 img {
@@ -98,11 +138,10 @@ a {
 /* ------------------------------------------------------------------ */
 
 header {
-    background-image: url('assets/images/Rectangle\ 10.png');
+    background-image: url('assets/images/home-bg.png');
     background-repeat: no-repeat;
     background-size: 38%;
     background-position: top right;
-
 }
 
 .hero {
@@ -116,9 +155,9 @@ header {
     min-height: 100vh;
 }
 
-/* ------------------------------------------------------------------ */
-/* NAV STYLES */
-/* Add a black background color to the top navigation */
+
+/* --------------------------  NAV START --------------------------  */
+
 .topnav {
     background-color: transparent;
     overflow: hidden;
@@ -131,8 +170,6 @@ header {
     width: 70%;
 }
 
-
-/* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
@@ -143,7 +180,6 @@ header {
     font-size: 14px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
     background-color: #4d85b046;
     color: #333333;
@@ -153,8 +189,6 @@ header {
     background-color: transparent;
 }
 
-
-/* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
     color: #DD71C6;
@@ -165,7 +199,6 @@ header {
     background-color: transparent;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 768px) {
     header {
         background-position: top right;
@@ -187,7 +220,6 @@ header {
     }
 }
 
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 768px) {
     .topnav.responsive {
         position: relative;
@@ -212,9 +244,14 @@ header {
         background-color: transparent;
     }
 
+    header {
+        background-image: url('assets/images/home-bg-mobile.png');
+
+    }
+    
 }
 
-/* Hero Main */
+/* --------------------------  Hero Main --------------------------  */
 
 .hero__main {
     padding-top: 8%;
@@ -222,7 +259,6 @@ header {
     grid-area: content;
     display: grid;
     gap: 2em;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     grid-template-columns: 1fr 1fr;
     align-items: center;
     color: #000;
@@ -240,13 +276,9 @@ header {
     display: none;
 }
 
-.highpink {
-    color: #DD71C6;
-}
-
 
 .hero__subtitle {
-    margin-top: 0.5srem;
+    margin-top: 0px;
     margin-bottom: 1.5rem;
     font-size: 16px;
     font-weight: 300;
@@ -303,7 +335,6 @@ header {
     flex-direction: column;
     display: flex;
     gap: 10px;
-    /* Note: backdrop-filter has minimal browser support */
     border-radius: 50px;
 }
 
@@ -389,16 +420,44 @@ header {
     }
 }
 
-/* 2nd SECOND SECTION - CARDS  */
+@media (min-width: 769px) and (max-width: 1199px) {
+    header {
+        background-image: url('assets/images/home-bg-mobile.png');
+        background-position: cover;
+    }
+    .rectangle {
+        width: 90%;
+        gap: 0px;
+        overflow: hidden;
+    }
+    .label {
+        font-size: 11px;
+    }
 
-/* Style the counter cards */
+    .count__numbers {
+        font-size: 15px;
+        line-height: 1;
+        font-weight: 600;
+    }
+
+    .count__title {
+        font-size: 14px;
+    }
+
+}
+
+/* --------------------------  2nd SECOND SECTION - CARDS --------------------------   */
+
 
 .card-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 -10px;
-    background-color: #DD71C6;
+    background-image: url("assets/images/cards-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .card {
@@ -463,7 +522,7 @@ header {
 
 @media (min-width: 768px) {
     .card-section {
-        padding: 80px 140px;
+        padding: 40px 140px;
     }
 
     .card {
@@ -474,8 +533,15 @@ header {
 }
 
 @media (max-width: 768px) {
+    .card-section {
+        background-image: url("assets/images/cards-bg-mobile.png");
+        color: #333333;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .card-description {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .card-section {
@@ -483,15 +549,14 @@ header {
     }
 }
 
-/* ENDS OF CARDS */
-
-/* --------------------------------------- */
-
-/* CONSULTATION SECTION */
+/* --------------------------  CONSULTATION SECTION --------------------------  */
 
 .consultation {
-    background-color: #73C3F4;
     color: #fff;
+    background-image: url("assets/images/who-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .consultation .title {
@@ -499,27 +564,6 @@ header {
     padding: 20px 0px;
     font-size: 32px;
     font-weight: 400;
-}
-
-.consultation .circle_bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.consultation .circle_bg::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .grid-container {
@@ -548,6 +592,14 @@ header {
 }
 
 @media (max-width: 768px) {
+
+    .consultation {
+        background-image: url("assets/images/who-bg-mobile.png");
+        color: #fff;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .grid-container {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -563,7 +615,7 @@ header {
 }
 
 
-/* WE CAN HELP YOU SECTION */
+/* --------------------------  WE CAN HELP YOU SECTION --------------------------  */
 
 .help-section {
     display: grid;
@@ -625,12 +677,325 @@ header {
 
     .help-paragraph {
         padding: 0px 40px;
-        
+
     }
 
-    .mobile-line-break{
+    .mobile-line-break {
         display: block;
         content: '';
         margin: 20px 0px;
     }
+
+}
+
+
+/* --------------------------  BENEFITS START --------------------------  */
+
+.benefits-section {
+    background-color: #F9F9F9;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    padding: 0px 160px;
+}
+
+.benefits-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 32px;
+    margin: 60px 0px;
+}
+
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    grid-column-gap: 80px;
+}
+
+.benefits-card {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-card-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.benefits-card-divider-blue {
+    margin: 30px;
+    width: 374px;
+    height: 0px;
+    border: 1px solid #B1E2FF;
+}
+
+.benefits-card-divider-pink {
+    margin: 30px;
+    width: 374px;
+    height: 0px;
+    border: 1px solid #FFB7F0;
+}
+
+.benefits-card-list {
+    list-style: disc;
+    text-align: left;
+    padding-left: 25px;
+}
+
+.benefits-card-list li {
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 0px 50px 0px 20px;
+    background-image: url('assets/images/bullet_icon_177745.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: 10px;
+    font-size: 16px;
+
+}
+
+@media (max-width: 768px) {
+    .benefits-section {
+        padding: 20px;
+    }
+
+    .benefits-card {
+        padding: 10px;
+    }
+
+    .benefits-title {
+        text-align: left;
+        font-size: 25px;
+        padding: 0px 150px 0px 50px;
+    }
+
+    .benefits-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/* --------------------------  FREQUENTLY ASK SECTION  --------------------------  */
+
+.faq-section {
+    text-align: left;
+    color: #333333;
+    margin: 60px 160px;
+}
+
+.faq-section h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.accordion {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F9F9F9;
+    font-size: 16px;
+    color: #333333;
+    cursor: pointer;
+    padding: 18px;
+    margin: 20px;
+    width: 80%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    position: relative;
+}
+
+.active,
+.accordion:hover {
+    background-color: #dd71c688;
+}
+
+.faq-arrow {
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.panel {
+    padding: 0 38px;
+    background-color: #ffffff;
+    display: none;
+    overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+
+    .faq-section {
+        margin: 40px;
+    }
+
+    .faq-section h2 {
+        font-size: 25px;
+        margin-right: 120px;
+    }
+
+    .accordion {
+        padding: 5px 35px 5px 10px;
+    }
+
+    .faq-arrow {
+        width: 14px;
+    }
+}
+
+
+/* ------------------- FOOTER -------------------------- */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color:#333333;
+    margin: 70px 140px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.first-column{
+    padding-right: 150px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    max-width: 40%;
+    margin-right: 10px;
+}
+
+.footer-description {
+    font-size: 16px;
+    word-wrap: break-word;
+    max-width: 400px;
+    margin: 0px 0px 40px 0px; 
+}
+
+.sub-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-columns h5 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.sub-columns .footer-column ul li a{
+    text-transform: none;
+    color:#333333;
+    text-decoration: none;
+}
+.sub-columns .footer-column ul li a:hover{
+    color:#DD71C6;
+    text-decoration: underline;
+}
+
+.sub-columns .footer-column ul li {
+    padding-bottom: 15px;
+}
+
+.footer-bottom {
+    margin: 20px 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+}
+
+.social-icons li  {
+    padding-right: 20px;
+}
+.social-icons li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #DD71C6;
+    border-radius: 50%;
+}
+
+.social-icons li a i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.social-icons li a:hover {
+    background-color: #dd71c6b0;
+}
+
+.copyright {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+
+    .footer {
+        margin: 40px;
+        
+    }
+    
+    .footer, .sub-columns, .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 60%;
+        max-width: 70%;
+
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 40px;
+        
+    }
+
+    .footer-bottom{
+        margin-left: 20px;
+    }
+
+    .copyright{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+    }
+
 }
