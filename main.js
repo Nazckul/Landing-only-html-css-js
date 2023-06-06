@@ -11,7 +11,7 @@ function myFunction() {
 /* END NAV */
 
 // Fecha y hora del evento (puedes ajustarla según tus necesidades)
-var eventDate = new Date("2023-06-21T00:00:00");
+var eventDate = new Date("2023-12-24T00:00:00");
 
 function updateCountdown() {
   var now = new Date();
